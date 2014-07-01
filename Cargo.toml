@@ -1,0 +1,13 @@
+[package]
+
+name = "rustybrot"
+version = "0.1.0"
+authors = [ "Matthew Cook <mgcook89@gmail.com>" ]
+
+[[bin]]
+
+name = "rustybrot"
+
+[dependencies.sdl2]
+
+git = "https://github.com/AngryLawyer/rust-sdl2.git"
