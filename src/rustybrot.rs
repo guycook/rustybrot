@@ -13,8 +13,11 @@ fn main() {
         Err(err) => fail!(format!("failed to create renderer: {}", err))
     };
 
-    let _ = renderer.set_draw_color(sdl2::pixels::RGB(255, 0, 0));
+    let _ = renderer.set_draw_color(sdl2::pixels::RGB(0, 0, 0));
     let _ = renderer.clear();
+    let _ = renderer.set_draw_color(sdl2::pixels::RGB(200, 200, 100));
+    let point = sdl2::rect::Point { x: 50, y: 100 };
+    let _ = renderer.draw_point(point);
     renderer.present();
 
     'main : loop {
