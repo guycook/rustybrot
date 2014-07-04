@@ -1,4 +1,15 @@
+extern crate num;
 extern crate sdl2;
+
+use num::complex::Complex;
+
+static maxIterations: int = 50;
+static threshold: f64 = 10.0;
+
+enum SetPoint {
+    Escaped(int),
+    Contained
+}
 
 fn main() {
     sdl2::init(sdl2::InitVideo);
@@ -35,4 +46,8 @@ fn main() {
     }
 
     sdl2::quit();
+}
+
+fn escape(point: Complex<f64>) -> SetPoint {
+    Escaped(1)
 }
