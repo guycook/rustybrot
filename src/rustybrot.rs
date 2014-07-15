@@ -1,3 +1,5 @@
+extern crate test;
+
 extern crate num;
 extern crate sdl2;
 
@@ -73,3 +75,21 @@ fn escape(c: Complex64) -> SetPoint {
 
     Escaped(iterations)
 }
+
+#[bench]
+fn bench_full_mandelbrot_simple(b: &mut test::Bencher) {
+    let resX = 800i;
+    let resY = 600i;
+
+    b.iter(|| {
+        for x in range(0, resX) {
+            for y in range(0, resY) {
+                let p = Complex64 { re: -2.0 + (x as f64) / 200.0, im: -2.0 + (y as f64) / 150.0 };
+                match escape(p) {
+                    _ => {}
+                }
+            }
+        }
+    });
+}
+
